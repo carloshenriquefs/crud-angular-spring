@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first, tap } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 
 import { Course } from '../containers/courses/model/course';
 
@@ -17,8 +17,8 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(),
-      delay(5000),
-      tap(courses => console.log(courses))
+      //delay(5000),
+      //tap(courses => console.log(courses))
     );
   }
 
@@ -27,6 +27,17 @@ export class CoursesService {
   }
 
   save(record: Partial<Course>) {
+    if(record._id) {
+      return this.update(record);
+    }
+    return this.create(record);
+  }
+
+  private create(record: Partial<Course>) {
     return this.httpClient.post<Course>(this.API, record).pipe(first());
+  }
+
+  private update(record: Partial<Course>) {
+    return this.httpClient.post<Course>(`${this.API}/${record._id}`, record).pipe(first());
   }
 }
