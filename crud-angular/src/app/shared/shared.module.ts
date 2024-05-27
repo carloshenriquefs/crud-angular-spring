@@ -10,7 +10,7 @@ import { CategoryPipe } from './pipes/category.pipe';
   declarations: [
     ErrorDialogComponent,
     CategoryPipe,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -21,4 +21,4 @@ import { CategoryPipe } from './pipes/category.pipe';
     CategoryPipe
   ]
 })
-export class SharedModule { }
+export class SharedModule {}
