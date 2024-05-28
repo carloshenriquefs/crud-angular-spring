@@ -24,18 +24,29 @@
         color="accent"
         aria-label="Adicionar um curso"
         class="action-column-header"
+        (click)="onAdd()"
       >
-        <mat-icon (click)="onAdd()">add</mat-icon>
+        <mat-icon>add</mat-icon>
       </button>
     </mat-header-cell>
 
     <mat-cell *matCellDef="let course">
-      <button mat-icon-button color="primary" aria-label="Editar um curso">
-        <mat-icon (click)="onEdit(course)">edit</mat-icon>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Editar um curso"
+        (click)="onEdit(course)"
+      >
+        <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="warn" aria-label="Remover curso">
-        <mat-icon (click)="onDelete(course)">delete</mat-icon>
+      <button
+        mat-icon-button
+        color="warn"
+        aria-label="Remover curso"
+        (click)="onDelete(course)"
+      >
+        <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>
