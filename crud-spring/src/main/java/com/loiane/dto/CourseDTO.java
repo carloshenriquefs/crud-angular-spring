@@ -18,11 +18,6 @@ public record CourseDTO(
         @NotNull
         @Length(max = 10)
         @Pattern(regexp = "Back-end|Front-end")
-        String category,
-
-        @NotNull
-        @Length(max = 10)
-        @Pattern(regexp = "Ativo|Inativo")
-        String status
+        String category
 ) {
 }
