@@ -1,7 +1,10 @@
 package com.loiane.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.loiane.enums.Category;
+import com.loiane.enums.converters.CategoryConverter;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,10 +37,11 @@ public class Course {
     private String name;
 
     @NotNull
-    @Length(max = 10)
-    @Pattern(regexp = "Back-end|Front-end")
+    //@Length(max = 10)
+    //@Pattern(regexp = "Back-end|Front-end")
     @Column(length = 10, nullable = false)
-    private String category;
+    @Convert(converter = CategoryConverter.class)
+    private Category category;
 
     @NotNull
     @Length(max = 10)
